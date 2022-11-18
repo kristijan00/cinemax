@@ -1,0 +1,109 @@
+.wrap {
+  position: relative;
+  min-height          : 100vh;
+  background-color: #000812;
+}
+
+.filteredList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 3rem 0 3rem 13rem;
+  width: 100%;
+  min-height: 35rem;
+}
+
+.container {
+  z-index              : -1;
+  padding              : 4rem 0.5rem 0.5rem;
+  height               : auto;
+  display              : grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.container h2 {
+  color     : white;
+  font-size : 1.2rem;
+  width     : 20rem;
+  margin    : auto;
+  text-align: center;
+}
+
+.carousel {
+  z-index: 0;
+  width  : 45rem;
+  margin : 1rem 0 0 2rem;
+}
+
+
+@media only screen and (min-width: 1200px) and (max-width: 1220px) {
+  .carousel {
+    width: 40rem;
+  }
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1199px) {
+  .carousel {
+    width: 38rem;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1099px) {
+  .carousel {
+    width: 28rem;
+  }
+}
+
+@media only screen and (min-width: 830px) and (max-width: 999px) {
+  .carousel {
+    width: 23rem;
+  }
+}
+
+@media only screen and (min-width: 680px) and (max-width: 829px) {
+  .carousel {
+    width: 16rem;
+  }
+}
+
+@media only screen and (min-width: 421px) and (max-width: 679px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel {
+    width: 18rem;
+    margin: 1rem auto;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .filteredList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    padding-left: 7rem;
+    width: 100%;
+  }
+  
+  .container {
+    padding: 2rem;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel {
+    margin: 1rem auto;
+    width : 13rem;
+  }
+
+  .filteredList {
+    display: flex;
+    flex-direction: column;
+    padding-left: 6rem;
+    width: 100%;
+  }
+}

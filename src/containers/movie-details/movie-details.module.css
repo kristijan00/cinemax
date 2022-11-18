@@ -1,0 +1,76 @@
+.wrap {
+  min-height      : 100vh;
+  background-color: #000812;
+  overflow-x      : hidden;
+}
+
+.container {
+  padding-top          : 10rem;
+  padding-left         : 2.5rem;
+  display              : grid;
+  grid-template-columns: 1fr 1fr;
+  width                : 100vw;
+}
+
+.container .leftSide {
+  margin: 0 auto;
+}
+
+.container .leftSide img {
+  cursor: default;
+  width : 18rem;
+}
+
+.rightSide {
+  margin: 2rem 0 0;
+  width : 30rem;
+}
+
+.container h2,
+p {
+  opacity: 0.8;
+  color  : white;
+}
+
+.container h2 {
+  font-size: 3rem;
+}
+
+@media only screen and (min-width: 1300px) {
+  .wrap {
+    min-height: 55vw;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .container {
+    display       : flex;
+    flex-direction: column;
+    padding-left  : 0;
+  }
+
+  .rightSide {
+    width     : auto;
+    text-align: center;
+  }
+
+  .container .leftSide img {
+    cursor: default;
+    width : 10rem;
+  }
+
+  .container h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (min-width: 550px) and (max-width: 1000px) {
+  .rightSide {
+    margin: 2rem 0 0 2rem;
+    width : 100%;
+  }
+
+  .container .leftSide img {
+    width : 25rem;
+  }
+}

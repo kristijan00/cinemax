@@ -1,0 +1,213 @@
+.wrap {
+  z-index         : 9999;
+  position        : fixed;
+  height          : 6rem;
+  width           : 100%;
+  padding         : 2rem 2.5rem;
+  background-color: #000812;
+  top             : 0rem;
+  left            : 0rem;
+  display         : flex;
+  opacity         : 0.9;
+}
+
+.wrap h1 {
+  color     : var(--color-primary);
+  cursor    : pointer;
+  transition: transform 0.5s ease-in-out;
+}
+
+.wrap h1:hover {
+  transform: scale(1.1);
+}
+
+.rightSide {
+  display    : flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.rightSide .link {
+  text-decoration: none;
+  color          : white;
+  opacity        : 0.7;
+  margin         : auto 1.5rem;
+  font-weight    : 500;
+  transition     : opacity 300ms;
+}
+
+.rightSide .link:hover {
+  opacity: 1;
+}
+
+.rightSide .searchField {
+  margin          : 0 2rem;
+  border-radius   : 0.5rem;
+  width           : 100%;
+  height          : 2.3rem;
+  background-color: var(--color-secondary);
+  transition      : all 0.5s ease-in;
+}
+
+.rightSide .searchField input {
+  width           : 100%;
+  height          : 100%;
+  border-radius   : inherit;
+  background-color: inherit;
+  border-style    : none;
+  color: white;
+}
+
+.rightSide .searchField input::placeholder {
+  padding-left: 0.5rem;
+}
+
+.searchField ul {
+  width                     : inherit;
+  height                    : auto;
+  background-color          : var(--color-secondary);
+  border-bottom-left-radius : 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  list-style-type           : none;
+  text-align                : center;
+  overflow   : hidden !important;
+  white-space: nowrap !important;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.searchField ul li {
+  height     : 2.5rem;
+  text-overflow: clip !important; 
+  transition: background-color 0.3s ease-in;
+  color: white;
+  border-radius: 0.5rem;
+  border-top: 1px solid black;
+  padding-top: 0.5rem;
+}
+
+.searchField ul li:hover {
+  background-color: white;
+  color: black;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.searchField ul li:first-child {
+  margin-top: 1rem;
+}
+
+.searchField ul li:last-child {
+  margin-bottom: 1rem;
+}
+
+.searchField ul li p {
+  color        : inherit;
+  font-size    : 1rem;
+  text-overflow: ellipsis !important;
+  transition: all 0.3s ease-in;
+}
+
+/* .searchField ul li p:hover {
+  color: black;
+} */
+
+@media only screen and (max-width: 1100px) {
+  .link {
+    display: none;
+  }
+
+  .rightSide .searchField {
+    display: none;
+  }
+
+  .rightSide .dropdown {
+    margin-right: 5rem !important;
+  }
+}
+
+/* Burger menu */
+
+.burgerMenu {
+  top      : 50%;
+  right    : 2%;
+  transform: translate(-50%, -50%);
+  position : absolute;
+  width    : 2.5rem;
+}
+
+.burgerMenu:before,
+.burgerMenu:after,
+.burgerMenu div {
+  background   : #fff;
+  content      : "";
+  display      : block;
+  height       : 6px;
+  border-radius: 3px;
+  margin       : 7px 0;
+  transition   : 0.5s;
+}
+
+.open:before {
+  transform: translateY(12px) rotate(135deg);
+}
+
+.open:after {
+  transform: translateY(-12px) rotate(-135deg);
+}
+
+.open div {
+  transform: scale(0);
+}
+
+.mobileMenu {
+  position: absolute;
+  background-color: var(--color-secondary);
+  top: 6rem;
+  width: 90vw;
+  height: 80vh;
+  transform: translateX(0%);
+  transition: transform 0.5s ease-in;
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  transform: translateX(100%);
+  width: 0;
+}
+
+.hidden .linkAlt,
+.hidden .linkContainer {
+  display: none;
+}
+
+
+.linkContainer {
+  text-align: right;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+}
+
+.linkContainer > div {
+  height: 2rem;
+  margin: auto 0;
+}
+
+.linkContainer > div > svg {
+  font-size: 35px;
+  padding-bottom: 0.5rem;
+}
+
+.linkAlt {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.5rem;
+  opacity        : 0.7;
+  margin         : auto 1.5rem;
+  font-weight    : 500;
+  transition     : opacity 300ms;
+}
