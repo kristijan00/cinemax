@@ -10,7 +10,7 @@ import MovieDetails from './containers/movie-details/movie-details';
 const App: React.FC = () => {
   const location = useLocation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 

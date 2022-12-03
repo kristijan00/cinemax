@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/header/header';
 import styles from './home.module.css';
@@ -8,11 +8,10 @@ import Footer from '../../components/footer/footer';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
-  const [searchText, setSearchText] = useState<string>('');
 
   return (
     <div className={styles.wrap} style={{ backgroundImage: `url(${backgroundPicture})` }}>
-      <Header searchText={searchText} setSearchText={setSearchText} />
+      <Header />
       <div className={styles.container}>
         <div className={styles.leftSide}>
           <h1>All of your streaming platforms in one app.</h1>

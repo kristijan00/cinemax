@@ -9,7 +9,6 @@ import Footer from '../../components/footer/footer';
 import MovieCard from '../../components/movie-card/movie-card';
 
 const MovieDetails: React.FC = () => {
-  const [searchText, setSearchText] = useState<string>('');
   const [movie, setMovie] = useState<Movie>();
   const params = useParams();
 
@@ -19,7 +18,7 @@ const MovieDetails: React.FC = () => {
 
   return (
     <div className={styles.wrap}>
-      <Header searchText={searchText} setSearchText={setSearchText} />
+      <Header />
       <div className={styles.container}>
         {
           movie ?

@@ -7,13 +7,9 @@ import moviesStore from '../../stores/movies-store';
 import { observer } from 'mobx-react-lite';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
+import searchStore from '../../stores/search-store';
 
-interface Props {
-  searchText: string;
-  setSearchText: (text: string) => void;
-}
-
-const Header: React.FC<Props> = props => {
+const Header: React.FC = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isBurgerOpen, setIsBurgerOpen] = useState<boolean>(false);
   const navigate = useNavigate();
@@ -33,12 +29,12 @@ const Header: React.FC<Props> = props => {
       <div className={styles.rightSide}>
         <Link className={styles.link} to="/home">Home</Link>
         <Link className={styles.link} to="/discover">Discover</Link>
-        <div className={styles.searchField} >
-          <input type="text" placeholder={'Search movies'} value={props.searchText ? props.searchText : ''} onChange={e => props.setSearchText(e.target.value!)}></input>
+        <div className={`${styles.searchField} ${searchStore.searchText.length > 0 ? styles.expanded : ''}`} >
+          <input type="text" placeholder={'Search movies'} value={searchStore.searchText ? searchStore.searchText : ''} onChange={e => searchStore.setSearchText(e.target.value!)}></input>
           <ul>
             {
-              props.searchText && props.searchText.length > 0 ?
-                moviesStore.movies.filter(movie => movie.title.toLocaleLowerCase().includes(props.searchText.toLocaleLowerCase()))
+              searchStore.searchText && searchStore.searchText.length > 0 ?
+                moviesStore.movies.filter(movie => movie.title.toLocaleLowerCase().includes(searchStore.searchText.toLocaleLowerCase()))
                   .map(item => <li onClick={() => navigate(`/movie-details/${item.id}`)} key={item.id}><p>{item.title}</p></li>)
                 : null
             }

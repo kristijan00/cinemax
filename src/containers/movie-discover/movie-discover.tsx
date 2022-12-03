@@ -30,7 +30,6 @@ const responsive = {
 };
 
 const MovieDiscover: React.FC = () => {
-  const [searchText, setSearchText] = useState<string>('');
   const [genreSelection, setGenreSelection] = useState<number>();
   const navigate = useNavigate();
 
@@ -40,7 +39,7 @@ const MovieDiscover: React.FC = () => {
 
   return (
     <div className={styles.wrap}>
-      <Header searchText={searchText} setSearchText={setSearchText} />
+      <Header />
       <Filter clear={clear} setGenreSelection={(genre) => setGenreSelection(genre)} />
       {
         genreSelection !== undefined ?
