@@ -16,6 +16,7 @@ export class MoviesStore {
       upcoming: observable,
       addFavorite: action,
       removeFavorite: action,
+      getFavoritesFromStorage: action,
     });
   }
 
@@ -27,6 +28,12 @@ export class MoviesStore {
       this.popular = result.results;
     if (result.results && type === 'upcoming')
       this.upcoming = result.results;
+  }
+
+  getFavoritesFromStorage() {
+    this.favoriteMovies = [...this.favoriteMovies, ...this.movies.filter(movie => !this.favoriteMovies.some(item => item.id === movie.id) && localStorage.getItem(JSON.stringify(movie.id)))];
+    this.favoriteMovies = [...this.favoriteMovies, ...this.popular.filter(movie => !this.favoriteMovies.some(item => item.id === movie.id) && localStorage.getItem(JSON.stringify(movie.id)))];
+    this.favoriteMovies = [...this.favoriteMovies, ...this.upcoming.filter(movie => !this.favoriteMovies.some(item => item.id === movie.id) && localStorage.getItem(JSON.stringify(movie.id)))];
   }
 
   addFavorite(id: number, title: string) {

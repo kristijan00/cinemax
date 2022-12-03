@@ -13,7 +13,7 @@ const MovieDetails: React.FC = () => {
   const params = useParams();
 
   useEffect(() => {
-    params.id && setMovie(moviesStore.movies.find(movie => params && params.id && movie.id === +params.id));
+    params.id && setMovie(moviesStore.movies.find(movie => params && params.id && movie.id === +params.id) || moviesStore.popular.find(movie => params && params.id && movie.id === +params.id) || moviesStore.upcoming.find(movie => params && params.id && movie.id === +params.id));
   }, [params.id]);
 
   return (
@@ -30,6 +30,7 @@ const MovieDetails: React.FC = () => {
                 <h2>{movie.title}</h2>
                 <p>Release date: {movie.release_date}</p>
                 <p>Rating: {movie.vote_average}</p>
+                <p>Overview: {movie.overview}</p>
               </div>
             </>
             : null

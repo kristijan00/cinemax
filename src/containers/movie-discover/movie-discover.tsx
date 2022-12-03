@@ -46,7 +46,7 @@ const MovieDiscover: React.FC = () => {
           <div className={styles.filteredList}>
             {
               moviesStore.movies.filter(movie => genreSelection !== undefined && movie.genre_ids && movie.genre_ids.some(genre => genre === genreSelection)).map(item =>
-                <MovieCard onClick={() => navigate(`/movie-details/${item.id}`)} movieId={item.id} movieTitle={item.title} picture={item.poster_path} />)
+                <MovieCard key={item.id} onClick={() => navigate(`/movie-details/${item.id}`)} movieId={item.id} movieTitle={item.title} picture={item.poster_path} />)
             }
           </div>
           :

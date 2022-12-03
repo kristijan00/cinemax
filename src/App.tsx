@@ -22,7 +22,7 @@ const App: React.FC = () => {
           moviesStore.fetchMovies('popular'),
           moviesStore.fetchMovies('upcoming'),
         ]);
-      });
+      }).then(() => runInAction(() => moviesStore.getFavoritesFromStorage()));
     }
   }, []);
 

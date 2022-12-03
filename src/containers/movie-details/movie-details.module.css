@@ -54,6 +54,11 @@ p {
     text-align: center;
   }
 
+  .rightSide p:last-child {
+    padding: 2rem 2rem;
+    text-align: center;
+  }
+
   .container .leftSide img {
     cursor: default;
     width : 10rem;
